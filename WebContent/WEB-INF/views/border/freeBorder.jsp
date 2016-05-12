@@ -3,23 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	int pages = 1;
-	String _pages = request.getParameter("pages");
-
-	if (_pages != null && !_pages.equals("")) {
-		pages = Integer.parseInt(_pages);
-	}
-
-	List<FreeBorder> list = null;
-	FreeBorderDAO dao = new FreeBorderDAO();
-	list = dao.getFreeBorderList(pages);
-
-	int cnt = dao.getCount();
-	int startPageNum = pages - (pages - 1) % 5;
-	int endPageNum = cnt / 15 + (cnt % 15 == 0 ? 0 : 1);
-	request.getSession().setAttribute("returnURL", "freeBorder.jsp?pages=" + pages);
-%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,36 +25,36 @@
 		<header>
 		<div class="width">
 			<h1>
-				<a style="color: #544354" href="index.jsp">REVENTE</a>
+				<a style="color: #544354" href="index.do">REVENTE</a>
 			</h1>
 
 			<nav>
 
 			<ul class="sf-menu dropdown">
-				<li><a href="index.jsp">Home</a></li>
-				<li><a class="has_submenu" href="sellBorder.jsp">Sell</a>
+				<li><a href="index.do">Home</a></li>
+				<li><a class="has_submenu" href="sellBorder.do">Sell</a>
 					<ul>
-						<li><a href="sellBorderCate.jsp?category=의류">의류</a></li>
-						<li><a href="sellBorderCate.jsp?category=도서">도서</a></li>
-						<li><a href="sellBorderCate.jsp?category=전자제품">전자제품</a></li>
-						<li><a href="sellBorderCate.jsp?category=기타">기타</a></li>
+						<li><a href="sellBorderCate.do?category=의류">의류</a></li>
+						<li><a href="sellBorderCate.do?category=도서">도서</a></li>
+						<li><a href="sellBorderCate.do?category=전자제품">전자제품</a></li>
+						<li><a href="sellBorderCate.do?category=기타">기타</a></li>
 					</ul></li>
-				<li><a class="has_submenu" href="buyBorder.jsp">Buy</a>
+				<li><a class="has_submenu" href="buyBorder.do">Buy</a>
 					<ul>
-						<li><a href="buyBorderCate.jsp?category=의류">의류</a></li>
-						<li><a href="buyBorderCate.jsp?category=도서">도서</a></li>
-						<li><a href="buyBorderCate.jsp?category=전자제품">전자제품</a></li>
-						<li><a href="buyBorderCate.jsp?category=기타">기타</a></li>
+						<li><a href="buyBorderCate.do?category=의류">의류</a></li>
+						<li><a href="buyBorderCate.do?category=도서">도서</a></li>
+						<li><a href="buyBorderCate.do?category=전자제품">전자제품</a></li>
+						<li><a href="buyBorderCate.do?category=기타">기타</a></li>
 					</ul></li>
 				<li class="selected"><a class="has_submenu">Community</a>
 					<ul>
-						<li><a href="freeBorder.jsp">자유게시판</a></li>
-						<li><a href="reviewBorder.jsp">후기게시판</a></li>
+						<li><a href="freeBorder.do">자유게시판</a></li>
+						<li><a href="reviewBorder.do">후기게시판</a></li>
 					</ul></li>
 				<li><a class="has_submenu">My Page</a>
 					<ul>
-						<li><a href="pickList.jsp">찜목록</a></li>
-						<li><a href="myNotice.jsp">내 상품</a></li>
+						<li><a href="pickList.do">찜목록</a></li>
+						<li><a href="myNotice.do">내 상품</a></li>
 					</ul></li>
 			</ul>
 
@@ -91,61 +75,51 @@
 					<th style="width: 20%">작성일</th>
 					<th style="width: 10%">조회수</th>
 				</tr>
-				<%
-					for (int i = 0; i < list.size(); i++) {
-				%>
-				<tr>
-					<td><%=list.get(i).getSeq()%></td>
-					<td><a
-						href="freeDetail.jsp?border=free&pages=<%=pages%>&seq=<%=list.get(i).getSeq()%>"
-						style="color: #666666"><%=list.get(i).getTitle()%></a></td>
-					<td><%=list.get(i).getWriter()%></td>
-					<td><%=list.get(i).getRegdate()%></td>
-					<td><%=list.get(i).getHit()%></td>
-				</tr>
-				<%
-					}
-				%>
+
+				<c:forEach var="i" items="${list}">
+					<tr>
+						<td>${i.seq}</td>
+						<td><a
+							href="freeDetail.do?border=free&pages=${pages}&seq=${i.seq}"
+							style="color: #666666">${i.title}</a></td>
+						<td>${i.writer}</td>
+						<td>${i.regdate}</td>
+						<td>${i.hit}</td>
+					</tr>
+				</c:forEach>
+
 			</table>
 
 			<div style="margin-top: 20px">
 				<p style="float: left; margin-left: 40%; width: 45px">
-					<%
-						if (startPageNum != 1) {
-					%>
-					<a href="freeBorder.jsp?pages=<%=startPageNum - 1%>"><img
-						style="margin-top: 5px" src="images/prev2.jpg" /></a>
-					<%
-						}
-					%>
+					<c:if test="${startPageNum != 1}">
+						<a href="freeBorder.do?pages=${startPageNum - 1}"><img
+							style="margin-top: 5px" src="images/prev2.jpg" /></a>
+					</c:if>
 				</p>
 				<p style="float: left; width: 80px">
-					<%
-						for (int i = 0; i < 5; i++) {
-							if (startPageNum + i <= endPageNum) {
-					%>
-					<a
-						style="font-size: 20px; font-weight: bold;<%if ((startPageNum + i) == pages) {%>
-						color:#ff0000; font-size:25px; font-weight: bold;
-						<%}%>"
-						href="freeBorder.jsp?pages=<%=startPageNum + i%>"><%=startPageNum + i%></a>
-					<%
-						}
-						}
-					%>
+					<c:forEach var="i" begin="0" end="4">
+						<c:if test="${startPageNum + i <= endPageNum}">
+							<c:if test="${(startPageNum + i) == pages}">
+								<a style="color: #ff0000; font-size: 25px; font-weight: bold;"
+									href="freeBorder.do?pages=${startPageNum + i}">${startPageNum + i}</a>
+							</c:if>
+							<c:if test="${(startPageNum + i) != pages}">
+								<a style="font-size: 20px; font-weight: bold;"
+									href="freeBorder.do?pages=${startPageNum + i}">${startPageNum + i}</a>
+							</c:if>
+
+						</c:if>
+					</c:forEach>
 				</p>
 				<p style="float: left; width: 45px">
-					<%
-						if (startPageNum + 4 < endPageNum) {
-					%>
-					<a href="freeBorder.jsp?pages=<%=startPageNum + 5%>"><img
+					<c:if test="${startPageNum +4 < endPageNum}">
+					<a href="freeBorder.do?pages=${startPageNum + 5}"><img
 						style="margin-left: 10px; margin-top: 5px" src="images/next2.jpg" /></a>
-					<%
-						}
-					%>
+					</c:if>
 				</p>
 				<div>
-					<a href="freeWrite.jsp?border=free&pages=<%=pages%>"
+					<a href="freeWrite.do?border=free&pages=${pages}"
 						class="button button-reversed"
 						style="margin-top: 10px; margin-left: 35%">글쓰기</a>
 				</div>

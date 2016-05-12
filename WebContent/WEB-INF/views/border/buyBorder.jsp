@@ -82,7 +82,7 @@
 						<td>${i.seq}</td>
 						<td>${i.category}</td>
 						<td><a
-							href="detail.do?border=buy&pages=${page}&seq=${i.seq}"
+							href="detail.do?border=buy&pages=${pages}&seq=${i.seq}"
 							style="color: #666666">${i.title}</a></td>
 						<td>${i.writer}</td>
 						<td>${i.regdate}</td>
