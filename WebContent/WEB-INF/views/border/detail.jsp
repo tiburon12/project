@@ -36,30 +36,30 @@
 			<nav>
 
 			<ul class="sf-menu dropdown">
-				<li><a href="index.jsp">Home</a></li>
-				<li><a class="has_submenu" href="sellBorder.jsp">Sell</a>
+				<li><a href="index.do">Home</a></li>
+				<li><a class="has_submenu" href="sellBorder.do">Sell</a>
 					<ul>
-						<li><a href="sellBorderCate.jsp?category=의류">의류</a></li>
-						<li><a href="sellBorderCate.jsp?category=도서">도서</a></li>
-						<li><a href="sellBorderCate.jsp?category=전자제품">전자제품</a></li>
-						<li><a href="sellBorderCate.jsp?category=기타">기타</a></li>
+						<li><a href="sellBorderCate.do?category=의류">의류</a></li>
+						<li><a href="sellBorderCate.do?category=도서">도서</a></li>
+						<li><a href="sellBorderCate.do?category=전자제품">전자제품</a></li>
+						<li><a href="sellBorderCate.do?category=기타">기타</a></li>
 					</ul></li>
-				<li><a class="has_submenu" href="buyBorder.jsp">Buy</a>
+				<li><a class="has_submenu" href="buyBorder.do">Buy</a>
 					<ul>
-						<li><a href="buyBorderCate.jsp?category=의류">의류</a></li>
-						<li><a href="buyBorderCate.jsp?category=도서">도서</a></li>
-						<li><a href="buyBorderCate.jsp?category=전자제품">전자제품</a></li>
-						<li><a href="buyBorderCate.jsp?category=기타">기타</a></li>
+						<li><a href="buyBorderCate.do?category=의류">의류</a></li>
+						<li><a href="buyBorderCate.do?category=도서">도서</a></li>
+						<li><a href="buyBorderCate.do?category=전자제품">전자제품</a></li>
+						<li><a href="buyBorderCate.do?category=기타">기타</a></li>
 					</ul></li>
 				<li><a class="has_submenu">Community</a>
 					<ul>
-						<li><a href="freeBorder.jsp">자유게시판</a></li>
-						<li><a href="reviewBorder.jsp">후기게시판</a></li>
+						<li><a href="freeBorder.do">자유게시판</a></li>
+						<li><a href="reviewBorder.do">후기게시판</a></li>
 					</ul></li>
 				<li><a class="has_submenu">My Page</a>
 					<ul>
-						<li><a href="pickList.jsp">찜목록</a></li>
-						<li><a href="myNotice.jsp">내 상품</a></li>
+						<li><a href="pickList.do">찜목록</a></li>
+						<li><a href="myNotice.do">내 상품</a></li>
 					</ul></li>
 			</ul>
 
@@ -113,7 +113,7 @@
 							<p>
 								<a
 									style="background: red; border-radius: 5px; margin-top: 80px; margin-left: 10px;"
-									href="pickUpProc.jsp?border=${border}&seq=${seq}"
+									href="pickUpProc.do?border=${border}&seq=${seq}"
 									class="button">PICK</a>
 
 								<c:if test="${!empty error}">
@@ -135,7 +135,7 @@
 									<dd style="width: 20%; font-size: 15px; float: left">${n.regdate}</dd>
 									<dd style="width: 10%; float: left">
 										<c:if test="${mid==n.writer}">
-											<a href="commentDelProc.jsp?c_seq=${n.c_seq}"><i
+											<a href="commentDelProc.do?c_seq=${n.c_seq}"><i
 												class="material-icons">&#xE872;</i></a>
 
 										</c:if>
@@ -144,7 +144,7 @@
 							</c:forEach>
 
 						</div>
-						<form action="commentRegProc.jsp"
+						<form action="commentRegProc.do"
 							style="border-top: 1px solid #000000; padding: 10px">
 							<div>
 								<textarea rows="4" name="content"
@@ -162,11 +162,11 @@
 					</div>
 					<div style="padding-left: 30px">
 						<c:if test="${b.writer==mid}">
-							<a href="delNoticeProc.jsp?seq=${b.seq}&border=${border}"
+							<a href="delNoticeProc.do?seq=${b.seq}&border=${border}"
 								class="button button-reversed"
 								style="margin-top: 20px; margin-left: auto; float: left">삭제</a>
 							<a
-								href="editNotice.jsp?border=${border}&seq=${b.seq}&pages=${pages}"
+								href="editNotice.do?border=${border}&seq=${b.seq}&pages=${pages}"
 								class="button button-reversed"
 								style="margin-top: 20px; margin-left: 20px; margin-right: 20px; float: left">수정</a>
 						</c:if>

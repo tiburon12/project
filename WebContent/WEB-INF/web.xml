@@ -30,7 +30,7 @@
 			<!-- <param-name>txtPath</param-name> -->
 			<!-- <param-value>D:\jsp\workspace\MVC2Proj\WebContent\WEB-INF\uriMap.txt</param-value> -->
 			<param-name>xmlPath</param-name>
-			<param-value>D:\jsp\workspace\ProjectMVC2\WebContent\WEB-INF\beans.xml</param-value>
+			<param-value>C:\Users\user\jsp\workspace\projectMVC2\WebContent\WEB-INF\beans.xml</param-value>
 		</init-param>
 	</servlet>
 

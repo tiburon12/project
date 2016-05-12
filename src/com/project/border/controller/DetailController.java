@@ -21,10 +21,13 @@ public class DetailController implements Controller {
 		String mid = null;
 		Border b = null;
 		List<Comment> list = null;
-		String error = (String) request.getAttribute("error");
+		String error = request.getParameter("error");
 		String pages = request.getParameter("pages");
 		String border = request.getParameter("border");
 		String seq = request.getParameter("seq");
+		if (error != null && !error.equals("")) {
+			error = "이미 찜한 게시물입니다.";
+		}
 		request.setAttribute("error", error);
 		request.getSession().setAttribute("returnURL",
 				"detail.do?border=" + border + "&seq=" + seq + "&pages=" + pages);

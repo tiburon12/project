@@ -14,5 +14,9 @@
 	<bean uri="/ProjectMVC2/delInfoProc.do" class="com.project.members.controller.DelInfoProcController" />
 	<bean uri="/ProjectMVC2/signUp.do" class="com.project.members.controller.SignUpController" />
 	<bean uri="/ProjectMVC2/signUpProc.do" class="com.project.members.controller.SignUpProcController" />
+	<bean uri="/ProjectMVC2/myNotice.do" class="com.project.members.controller.MyNoticeController" />
+	<bean uri="/ProjectMVC2/pickList.do" class="com.project.members.controller.PickListController" />
+	<bean uri="/ProjectMVC2/pickUpProc.do" class="com.project.members.controller.PickUpProcController" />
+	<bean uri="/ProjectMVC2/delPickProc.do" class="com.project.members.controller.DelPickProcController" />
 
 </beans>
