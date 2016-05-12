@@ -12,5 +12,7 @@
 	<bean uri="/ProjectMVC2/editInfoProc.do" class="com.project.members.controller.EditInfoProcController" />
 	<bean uri="/ProjectMVC2/delInfo.do" class="com.project.members.controller.DelInfoController" />
 	<bean uri="/ProjectMVC2/delInfoProc.do" class="com.project.members.controller.DelInfoProcController" />
+	<bean uri="/ProjectMVC2/signUp.do" class="com.project.members.controller.SignUpController" />
+	<bean uri="/ProjectMVC2/signUpProc.do" class="com.project.members.controller.SignUpProcController" />
 
 </beans>

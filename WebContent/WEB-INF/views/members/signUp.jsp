@@ -1,9 +1,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	String error = (String) request.getAttribute("error");
-%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,36 +52,36 @@
 		<header>
 		<div class="width">
 			<h1>
-				<a style="color: #544354" href="index.jsp">REVENTE</a>
+				<a style="color: #544354" href="index.do">REVENTE</a>
 			</h1>
 
 			<nav>
 
 			<ul class="sf-menu dropdown">
-				<li><a href="index.jsp">Home</a></li>
-				<li><a class="has_submenu" href="sellBorder.jsp">Sell</a>
+				<li><a href="index.do">Home</a></li>
+				<li><a class="has_submenu" href="sellBorder.do">Sell</a>
 					<ul>
-						<li><a href="sellBorderCate.jsp?category=의류">의류</a></li>
-						<li><a href="sellBorderCate.jsp?category=도서">도서</a></li>
-						<li><a href="sellBorderCate.jsp?category=전자제품">전자제품</a></li>
-						<li><a href="sellBorderCate.jsp?category=기타">기타</a></li>
+						<li><a href="sellBorderCate.do?category=의류">의류</a></li>
+						<li><a href="sellBorderCate.do?category=도서">도서</a></li>
+						<li><a href="sellBorderCate.do?category=전자제품">전자제품</a></li>
+						<li><a href="sellBorderCate.do?category=기타">기타</a></li>
 					</ul></li>
-				<li><a class="has_submenu" href="buyBorder.jsp">Buy</a>
+				<li><a class="has_submenu" href="buyBorder.do">Buy</a>
 					<ul>
-						<li><a href="buyBorderCate.jsp?category=의류">의류</a></li>
-						<li><a href="buyBorderCate.jsp?category=도서">도서</a></li>
-						<li><a href="buyBorderCate.jsp?category=전자제품">전자제품</a></li>
-						<li><a href="buyBorderCate.jsp?category=기타">기타</a></li>
+						<li><a href="buyBorderCate.do?category=의류">의류</a></li>
+						<li><a href="buyBorderCate.do?category=도서">도서</a></li>
+						<li><a href="buyBorderCate.do?category=전자제품">전자제품</a></li>
+						<li><a href="buyBorderCate.do?category=기타">기타</a></li>
 					</ul></li>
 				<li><a class="has_submenu">Community</a>
 					<ul>
-						<li><a href="freeBorder.jsp">자유게시판</a></li>
-						<li><a href="reviewBorder.jsp">후기게시판</a></li>
+						<li><a href="freeBorder.do">자유게시판</a></li>
+						<li><a href="reviewBorder.do">후기게시판</a></li>
 					</ul></li>
 				<li><a class="has_submenu">My Page</a>
 					<ul>
-						<li><a href="pickList.jsp">찜목록</a></li>
-						<li><a href="myNotice.jsp">내 상품</a></li>
+						<li><a href="pickList.do">찜목록</a></li>
+						<li><a href="myNotice.do">내 상품</a></li>
 					</ul></li>
 			</ul>
 
@@ -98,16 +96,13 @@
 			<h1 style="margin: 20px; font-size: 50px">회원가입</h1>
 			<fieldset>
 
-				<form name="signUp" action="signUpProc.jsp" method="post"
+				<form name="signUp" action="signUpProc.do" method="post"
 					onsubmit="return validate()"
 					style="padding: 60px; width: 500px; border: solid 3px; border-radius: 20px; margin: 7% 0% 15% 26%; font-size: 20px">
-					<%
-						if (error != null && !error.equals("")) {
-					%>
-					<p><%=error%></p>
-					<%
-						}
-					%>
+					<c:if test="${!empty error}">
+						<p>${error}</p>
+					</c:if>
+
 					<p>
 						<label for="mid">아이디:</label> <input name="mid" id="mid" value=""
 							type="text" pattern="[a-zA-Z][a-zA-Z0-9]{3,11}" required
@@ -128,7 +123,8 @@
 					</p>
 					<p>
 						<label for="name">이메일:</label> <input name="email" id="email"
-							value="" type="text" required pattern="\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"/>
+							value="" type="text" required
+							pattern="\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" />
 					</p>
 					<p>
 						<label for="name">전화번호:</label> <input name="phone" id="phone"
