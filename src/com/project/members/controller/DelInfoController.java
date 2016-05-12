@@ -10,7 +10,7 @@ import com.project.controller.Controller;
 import com.project.dao.MemberDAO;
 import com.project.vo.Member;
 
-public class EditInfoController implements Controller {
+public class DelInfoController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String mid = (String) request.getSession().getAttribute("mid");
@@ -19,12 +19,14 @@ public class EditInfoController implements Controller {
 		if (error != null && !error.equals("")) {
 			error = "패스워드가 틀렸습니다.";
 		}
+
 		MemberDAO dao = new MemberDAO();
 		Member m = dao.getMember(mid);
 
 		request.setAttribute("m", m);
 		request.setAttribute("error", error);
-		return "/WEB-INF/views/members/editInfo.jsp";
+
+		return "/WEB-INF/views/members/delInfo.jsp";
 	}
 
 }

@@ -23,36 +23,36 @@
 		<header>
 		<div class="width">
 			<h1>
-				<a style="color: #544354" href="index.jsp">REVENTE</a>
+				<a style="color: #544354" href="index.do">REVENTE</a>
 			</h1>
 
 			<nav>
 
 			<ul class="sf-menu dropdown">
-				<li><a href="index.jsp">Home</a></li>
-				<li><a class="has_submenu" href="sellBorder.jsp">Sell</a>
+				<li><a href="index.do">Home</a></li>
+				<li><a class="has_submenu" href="sellBorder.do">Sell</a>
 					<ul>
-						<li><a href="sellBorderCate.jsp?category=의류">의류</a></li>
-						<li><a href="sellBorderCate.jsp?category=도서">도서</a></li>
-						<li><a href="sellBorderCate.jsp?category=전자제품">전자제품</a></li>
-						<li><a href="sellBorderCate.jsp?category=기타">기타</a></li>
+						<li><a href="sellBorderCate.do?category=의류">의류</a></li>
+						<li><a href="sellBorderCate.do?category=도서">도서</a></li>
+						<li><a href="sellBorderCate.do?category=전자제품">전자제품</a></li>
+						<li><a href="sellBorderCate.do?category=기타">기타</a></li>
 					</ul></li>
-				<li><a class="has_submenu" href="buyBorder.jsp">Buy</a>
+				<li><a class="has_submenu" href="buyBorder.do">Buy</a>
 					<ul>
-						<li><a href="buyBorderCate.jsp?category=의류">의류</a></li>
-						<li><a href="buyBorderCate.jsp?category=도서">도서</a></li>
-						<li><a href="buyBorderCate.jsp?category=전자제품">전자제품</a></li>
-						<li><a href="buyBorderCate.jsp?category=기타">기타</a></li>
+						<li><a href="buyBorderCate.do?category=의류">의류</a></li>
+						<li><a href="buyBorderCate.do?category=도서">도서</a></li>
+						<li><a href="buyBorderCate.do?category=전자제품">전자제품</a></li>
+						<li><a href="buyBorderCate.do?category=기타">기타</a></li>
 					</ul></li>
 				<li><a class="has_submenu">Community</a>
 					<ul>
-						<li><a href="freeBorder.jsp">자유게시판</a></li>
-						<li><a href="reviewBorder.jsp">후기게시판</a></li>
+						<li><a href="freeBorder.do">자유게시판</a></li>
+						<li><a href="reviewBorder.do">후기게시판</a></li>
 					</ul></li>
 				<li><a class="has_submenu">My Page</a>
 					<ul>
-						<li><a href="pickList.jsp">찜목록</a></li>
-						<li><a href="myNotice.jsp">내 상품</a></li>
+						<li><a href="pickList.do">찜목록</a></li>
+						<li><a href="myNotice.do">내 상품</a></li>
 					</ul></li>
 			</ul>
 
@@ -84,7 +84,7 @@
 						<input name="login"
 							style="margin-left: 20px; width: 40%; padding: 6px 0px 5px 0px"
 							class="formbutton" value="로그인" type="submit" /> <a
-							href="signUp.jsp" class="button"
+							href="signUp.do" class="button"
 							style="margin-left: 5px; padding: 0px; font-size: 14px; width: 40%; height: 33px; background: #8E959A; background-color: #8E959A;">회원가입</a>
 					</p>
 				</form>

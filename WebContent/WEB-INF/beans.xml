@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-	<bean uri ="/ProjectMVC2/index.do" class="com.project.border.controller.IndexController"/>
-	<bean uri ="/ProjectMVC2/sellBorder.do" class="com.project.border.controller.SellBorderController"/>
-	<bean uri ="/ProjectMVC2/buyBorder.do" class="com.project.border.controller.BuyBorderController"/>
-	<bean uri ="/ProjectMVC2/detail.do" class="com.project.border.controller.DetailController"/>
-	<bean uri ="/ProjectMVC2/login.do" class="com.project.members.controller.LoginController"/>
-	<bean uri ="/ProjectMVC2/loginProc.do" class="com.project.members.controller.LoginProcController"/>
-	<bean uri ="/ProjectMVC2/logoutProc.do" class="com.project.members.controller.LogoutProcController"/>
-	<bean uri ="/ProjectMVC2/myInfo.do" class="com.project.members.controller.MyInfoController"/>
-	<bean uri ="/ProjectMVC2/editInfo.do" class="com.project.members.controller.EditInfoController"/>
+	<bean uri="/ProjectMVC2/index.do" class="com.project.border.controller.IndexController" />
+	<bean uri="/ProjectMVC2/sellBorder.do" class="com.project.border.controller.SellBorderController" />
+	<bean uri="/ProjectMVC2/buyBorder.do" class="com.project.border.controller.BuyBorderController" />
+	<bean uri="/ProjectMVC2/detail.do" class="com.project.border.controller.DetailController" />
+	<bean uri="/ProjectMVC2/login.do" class="com.project.members.controller.LoginController" />
+	<bean uri="/ProjectMVC2/loginProc.do" class="com.project.members.controller.LoginProcController" />
+	<bean uri="/ProjectMVC2/logoutProc.do" class="com.project.members.controller.LogoutProcController" />
+	<bean uri="/ProjectMVC2/myInfo.do" class="com.project.members.controller.MyInfoController" />
+	<bean uri="/ProjectMVC2/editInfo.do" class="com.project.members.controller.EditInfoController" />
+	<bean uri="/ProjectMVC2/editInfoProc.do" class="com.project.members.controller.EditInfoProcController" />
+	<bean uri="/ProjectMVC2/delInfo.do" class="com.project.members.controller.DelInfoController" />
+	<bean uri="/ProjectMVC2/delInfoProc.do" class="com.project.members.controller.DelInfoProcController" />
 
 </beans>
