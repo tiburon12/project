@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+
+table {
+	width: 100%;
+	text-align: left;
+	font-family: 'Jeju Hallasan', cursive;
+	font-size: 18px;
+}
